@@ -13,6 +13,7 @@
                 header('Location: ../PageError/dbError.php');
             }
             return $con;
+            
         }
     }
 ?>
