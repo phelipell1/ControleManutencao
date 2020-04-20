@@ -24,6 +24,40 @@ emp_Bairro, cid_Codigo, est_Codigo, emp_CEP, emp_Fixo, tem_Codigo) VALUES ('$txt
 '$txtemp_Descricao', '$txtemp_Logradouro', '$txtemp_Numero', '$txtemp_Complemento','$txtemp_Bairro', '$txtcodCidade', '$txtcodUF', '$txtemp_CEP',
 '$txtemp_Fixo', '$txt_tipoEmpresa')";   
 
+
+
+if($txtemp_CNPJ == ""){
+    echo'Atenção ! Informe o <strong>CNPJ</strong> para prosseguir';
+    die();
+}elseif($txtemp_RasaoSocial == ""){
+    echo'Atenção ! Informe o <strong>Razão Social</strong> para prosseguir';
+    die();
+}elseif($txtemp_TipoEmpresa == ""){
+    echo'Atenção ! Informe o <strong>Tipo Empresa</strong> para prosseguir';
+    die();
+}elseif($txtemp_Descricao == ""){
+    echo'Atenção ! Informe o <strong>Descrição</strong> para prosseguir';
+    die();
+}elseif($txtemp_Logradouro == ""){
+    echo'Atenção ! Informe o <strong>Logradouro</strong> para prosseguir';
+    die();
+}elseif($txtemp_Bairro == ""){
+    echo'Atenção ! Informe o <strong>Bairro/Setor</strong> para prosseguir';
+    die();
+}elseif($txtcodUF == "-Selecione-"){
+    echo'Atenção ! Informe o <strong>Estado</strong> para prosseguir';
+    die();
+}elseif($txtcodCidade == ""){
+    echo'Atenção ! Informe o <strong>Cidade</strong> para prosseguir';
+    die();
+}elseif($txtemp_CEP == ""){
+    echo'Atenção ! Informe o <strong>CEP</strong> para prosseguir';
+    die();
+}elseif($txt_tipoEmpresa == "-Selecione-"){
+    echo'Atenção ! Informe a <strong>Empresa</strong> para prosseguir';
+    die();
+}
+
 $result_insert = mysqli_query($link, $query_insert);
 
 if($result_insert == true){

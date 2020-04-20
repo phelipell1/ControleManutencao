@@ -21,7 +21,6 @@
         data: {ufs: $('#txtcodUF').val()},
         success:function(data){
             $('#txtcodCidade').html(data).show();
-            
         }
         });
     })
@@ -38,6 +37,19 @@
             data: $('#form_Empresa').serialize(),
             success:function(data){
                 alert(data);
+                $('#txtemp_CNPJ').val('');
+                $('#txtemp_RasaoSocial').val('');
+                $('#txtemp_TipoEmpresa').val('');
+                $('#txtemp_Descricao').val('');
+                $('#txtemp_Logradouro').val('');
+                $('#txtemp_Numero').val('');
+                $('#txtemp_Complemento').val('');
+                $('#txtemp_Bairro').val('');
+                $('#txtcodUF').val('-Selecione-');
+                $('#txtcodCidade').val('-Selecione-');
+                $('#txtemp_CEP').val('');
+                $('#txtemp_Fixo').val('');
+                $('#txt_tipoEmpresa').val('-Selecione-');
             }
         })
     });
