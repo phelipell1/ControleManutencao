@@ -16,6 +16,23 @@ $query_insert = "INSERT INTO Remessas (rms_Descricao, rem_Remetente, des_Destina
 VALUES
 ('$rms_Descricao', '$rem_Remetente', '$rem_Destinatario', '$cid_Codigo', '$est_Codigo','$temp_Empresa', 'NULL', NOW())";   
 
+if($rem_Remetente == "Selecione"){
+    echo'Atenção ! E necessário adicionar Remetente para continuar';
+    die();
+}elseif($rem_Destinatario == 'Selecione'){
+    echo'Atenção ! E necessário adicionar Destinatário para continuar';
+    die();
+}elseif($est_Codigo == "Selecione"){
+    echo'Atenção ! E necessário adicionar Estado para continuar';
+    die();
+}elseif($cid_Codigo == "Selecione"){
+    echo'Atenção ! E necessário adicionar Cidade para continuar';
+    die();
+}elseif($temp_Empresa == "Selecione"){
+    echo'Atenção ! E necessário adicionar Envio para continuar';
+    die();
+}
+
 $result_insert = mysqli_query($link, $query_insert);
 
 if($result_insert == true){
