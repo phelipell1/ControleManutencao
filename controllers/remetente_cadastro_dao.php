@@ -14,7 +14,21 @@ $txtrem_Ativo = filter_input(INPUT_POST, 'txtrem_Ativo', FILTER_SANITIZE_STRING)
 
 $query_insert = "INSERT INTO Remetente (rem_Remetente, rem_Abreviado, rem_Fixo, rem_Movel, emp_Codigo, rem_Ativo) 
 VALUES
-('$textrem_Remetente', '$textrem_Abreviado', '$textrem_Fixo', '$textrem_Movel', '$txtemp_Codigo', '$txtrem_Ativo')";   
+('$textrem_Remetente', '$textrem_Abreviado', '$textrem_Fixo', '$textrem_Movel', '$txtemp_Codigo', '$txtrem_Ativo')";
+
+if($textrem_Remetente == ""){
+    echo 'Atenção ! E necessário informar o Remetente.';
+    die();
+}elseif($textrem_Abreviado == ""){
+    echo 'Atenção ! E necessário informar o Nome Abreviado.';
+    die();
+}elseif($txtemp_Codigo == "-Selecione-"){
+    echo 'Atenção ! E necessário informar a empresa.';
+    die();
+}elseif($txtrem_Ativo == "-Selecione-"){
+    echo 'Atenção ! E necessário informar a Situação.';
+    die();
+}
 
 $result_insert = mysqli_query($link, $query_insert);
 

@@ -19,6 +19,12 @@
             data: $('#form-Remetente').serialize(),
             success:function(data){
                 alert(data);
+                $('#textrem_Remetente').val('');
+                $('#textrem_Abreviado').val('');
+                $('#textrem_Fixo').val('');
+                $('#textrem_Movel').val('');
+                $('#txtemp_Codigo').val('-Selecione-');
+                $('#txtrem_Ativo').val('-Selecione-');
             }
         })
     });
