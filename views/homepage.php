@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('../Connections/Conexao.php');
+    $perfil_acesso = $_SESSION['userperfil'];
     $rms = isset($_GET['rms']) ? $_GET['rms'] : 0;
     $Obj = new DB();
     $link = $Obj->connecta_mysql();
@@ -23,10 +24,28 @@
     <!--Essa parte carrega as informações com base no perfil do Usuario-->
     <script>
         $(document).ready(function(){
-            $('#li-vazio').hide();
-            $('#li-usuario').hide();
-            $('#li-redefinir').hide();
-            $('#li-remessa').hide();
+            //Acesso segundo perfil do Usuário
+            var perfil = "<?echo$perfil_acesso?>";
+
+            if(perfil == 'Suporte'){
+                $('#btnDestinatarios').show();
+                $('#btnEmpresas').show();
+                $('#btnRemetente').show();
+                $('#SubMenuTicketOpen').show();
+                $('#bt').show();
+            }else if(perfil == 'Administrador'){
+                $('#btnDestinatarios').show();
+                $('#btnEmpresas').show();
+                $('#btnRemetente').show();
+                $('#SubMenuTicketOpen').show();
+                $('#bt').show();
+            }else if(perfil == "Operador"){
+                $('#btnDestinatarios').hide();
+                $('#btnEmpresas').hide();
+                $('#btnRemetente').hide();
+                $('#SubMenuTicketOpen').hide();
+                $('#bt').show();
+            }
 
             var sts_page = "<?echo$rms?>";
             if(sts_page == '1'){
