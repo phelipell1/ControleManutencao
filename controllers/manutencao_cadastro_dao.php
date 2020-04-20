@@ -28,6 +28,10 @@ $query_insert = "INSERT INTO EntradaManutencao
 VALUES
 ('$txtCodEquipamento','$txtCodMDE', '$textIMEI', $sut, '$textpatrimonio', '$textdescricaoDefeito', NOW(), '$txtcodCidade', '$txtcodUF', '$txtcodDepartamento',
 '$txtcodStatus', '$user_id', '$txtcodRemessa')";   
+if($txtCodEquipamento == "-Selecione-" || $txtCodMDE == "-Selecione-" || $textIMEI == "" || $textpatrimonio == "" || $textdescricaoDefeito == ""
+|| $txtcodUF == "-Selecione-" || $txtcodCidade == "-Selecione-" || $txtcodDepartamento == "-Selecione-" || $txtcodStatus == "-Selecione-"){
+    echo 'Atenção ! Todos os campos são obrigatórios';
+}
 
 $result_insert = mysqli_query($link, $query_insert);
 

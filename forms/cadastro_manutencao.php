@@ -53,7 +53,6 @@
         }
         });
     })
-
     $("#btn_Registrar").click(function(){
         $.ajax({
             url: '../controllers/manutencao_cadastro_dao.php',
@@ -74,13 +73,11 @@
         }
         });
     })
-
     $('#btn_Voltar').click(function(){
         window.location = '../views/homepage.php';
     })
     });
 </script>
-
 <div class="contaniner">
     <div class="shadow-lg p-3 mb-5 rounded border">
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
