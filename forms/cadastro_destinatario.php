@@ -33,12 +33,31 @@
 
     //Script para inserir dados no banco de dados.//
     $('#btnCadastrar').click(function(){
-        $.ajax({
+
+            $.ajax({
             url: '../controllers/destinatario_dao.php',
             method: 'post',
             data: $('#form_Destinatario').serialize(),
             success:function(data){
                 alert(data);
+                $('#txtdesc_destinatario').val('');
+                $('#txtdesc_AC').val('');
+                $('#txtdesc_AcAbreviado').val('');
+                $('#txtdesc_CPF').val('');
+                $('#txtdesc_Logradouro').val('');
+                $('#txtdesc_Numero').val('');
+                $('#txtdesc_Complemento').val('');
+                $('#txtdesc_Bairro').val('');
+                $('#txtcodUF').val('-Selecione-');
+                $('#txtcodCidade').val('');
+                $('#txtdesc_CEP').val('');
+                $('#txtdesc_Fixo').val('');
+                $('#txtdesc_Movel').val('');
+                $('#txt_Transporte').val('');
+                $('#txtdesc_Ativo').val('');
+                $('#txtdesc_Latitude').val('');
+                $('#txtdesc_Longitude').val('');
+
             }
         })
     });
@@ -135,7 +154,12 @@
                 </div>
                 <div class="form-group col-2">
                     <label for="txtdesc_Ativo">Ativo</label>
-                    <input type="text" name="txtdesc_Ativo" id="txtdesc_Ativo" class="form-control form-control-sm">
+                    <select name="txtdesc_Ativo" id="txtdesc_Ativo" class="form-control form-control-sm">
+                        <option selected>-Selecione-</option>
+                        <option value="1">Ativo</option>
+                        <option value="0">Inativo</option>
+                            
+                    </select>
                 </div>
                 <div class="form-group col-3">
                     <label for="txtdesc_Latitude">Latitude</label>

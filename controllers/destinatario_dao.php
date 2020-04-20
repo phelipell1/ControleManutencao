@@ -31,6 +31,38 @@ desc_Ativo, desc_Operador, desc_DataAlteracao, desc_Latitude, desc_Longitude) va
 '$txtcodCidade', '$txtcodUF', '$txtdesc_CEP', '$txtdesc_Fixo', '$txtdesc_Movel', '$txt_Transporte', '$txtdesc_Ativo',
 '$user_id',now(),'$txtdesc_Latitude', '$txtdesc_Longitude')";
 
+if( $txtdesc_destinatario == ""){
+    echo 'Atenção ! É necessário ter um Destinatário para prosseguir';
+    die();
+}else if($txtdesc_AC == ""){
+    echo 'Atenção ! É necessário ter um Aos Cuidados para prosseguir';
+    die(); 
+}else if($txtdesc_AcAbreviado == ""){
+    echo 'Atenção ! É necessário ter um AC para prosseguir';
+    die(); 
+}else if($txtdesc_Logradouro == ""){
+    echo 'Atenção ! É necessário ter um Logradoruro para prosseguir';
+    die(); 
+}else if($txtdesc_Bairro == ""){
+    echo 'Atenção ! É necessário ter um Bairro para prosseguir';
+    die(); 
+}else if($txtcodCidade == "-Selecione-"){
+    echo 'Atenção ! É necessário ter um Cidade para prosseguir';
+    die(); 
+}else if($txtcodUF == "-Selecione-"){
+    echo 'Atenção ! É necessário ter um UF para prosseguir';
+    die(); 
+}else if($txtdesc_CEP == ""){
+    echo 'Atenção ! É necessário ter um CEP para prosseguir';
+    die(); 
+}else if($txt_Transporte == ""){
+    echo 'Atenção ! É necessário ter uma Transportadora para prosseguir';
+    die(); 
+}else if($txtdesc_Ativo == ""){
+    echo 'Atenção ! É necessário ter a situação  para prosseguir';
+    die(); 
+}
+
 $result_insert = mysqli_query($link, $query_insert);
 
 if($result_insert == true){

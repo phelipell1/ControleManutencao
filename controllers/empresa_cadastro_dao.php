@@ -24,12 +24,11 @@ emp_Bairro, cid_Codigo, est_Codigo, emp_CEP, emp_Fixo, tem_Codigo) VALUES ('$txt
 '$txtemp_Descricao', '$txtemp_Logradouro', '$txtemp_Numero', '$txtemp_Complemento','$txtemp_Bairro', '$txtcodCidade', '$txtcodUF', '$txtemp_CEP',
 '$txtemp_Fixo', '$txt_tipoEmpresa')";   
 
-
 $result_insert = mysqli_query($link, $query_insert);
 
 if($result_insert == true){
     echo 'Destinatário inserido com sucesso !';
 }else{
-    echo 'Atenção ! existe um erro ao tentar executar script'.'<br>'.mysqli_error($link).'<\br>'.$txtcodCidade;
+    echo 'Atenção ! existe um erro ao tentar executar script'.'<br>';
 }
 ?>
