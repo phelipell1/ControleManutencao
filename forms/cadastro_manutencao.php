@@ -78,7 +78,7 @@
     })
     });
 </script>
-<div class="contaniner">
+<div class="container">
     <div class="shadow-lg p-3 mb-5 rounded border">
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Atenção!</strong> Se for enviar Remessa para manutenção cadastrar Remessa. 
