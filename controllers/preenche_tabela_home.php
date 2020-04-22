@@ -5,11 +5,12 @@
     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
     date_default_timezone_set('America/Sao_Paulo');
     $data = strftime('%Y-%m', strtotime('today'));
-    $query_busca = "select r.rms_Codigo, r.rms_dataCriacao, c.Cidade, r.rms_Rastreio, e.emp_Descricao, e.emp_CEP, d.desc_AcAbreviado from Remessas as r
-    left join Cidades as c on c.codCidade= r.rms_Codigo
-    left join Empresa as e on e.emp_Codigo = r.rms_Codigo
-    left join Destinatario as d on d.cod_Destinatario = rms_Codigo 
-    where rms_dataCriacao like '%$data%'";
+    $query_busca = "select date_format(reg.sed_DataPostagem,'%d-%m-%Y') as dat, des.desc_AcAbreviado, cid.Cidade, des.desc_CEP,
+    reg.sed_Cod_rastreio, reg.sed_Valor, reg.sed_Pago from regSedex as reg
+    left join Cidades as cid on cid.codCidade = reg.cid_Codigo
+    left join Destinatario as des on des.cod_Destinatario = reg.des_Codigo
+    where sed_Pago = true
+    and sed_Data like '%$data%'";
 
     $resust_busca = mysqli_query($link, $query_busca);
     $linhas = $resust_busca->num_rows;
@@ -21,6 +22,12 @@
             echo'
             <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
             <link rel="stylesheet" href="../CSS/style2.css">
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+            <script>
+            $(document).ready(function () { 
+                $("#cep").mask("99999-999");
+                });
+            </script>
             <table class="table table-bordered table-sm">
                             <thead>
                                 <tr>
@@ -29,6 +36,8 @@
                                     <th scope="col">Cidade</th>
                                     <th scope="col">CEP</th>
                                     <th scope="col">Cód. Rastreio</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col">Pago?</th>
                                 </tr>
                             </thead>
                             
@@ -37,15 +46,17 @@
                 echo'
                 <tbody class="small">
                 <tr>
-                    <td scope="row">'.$reg['rms_dataCriacao'].'</td>
+                    <td scope="row" id="data">'.$reg['dat'].'</td>
                     <td scope="row">'.$reg['desc_AcAbreviado'].'</td>
                     <td scope="row">'.$reg['Cidade'].'</td>
-                    <td scope="row">'.$reg['emp_CEP'].'</td>
-                    <td scope="row">'.$reg['rms_Rastreio'].'</td>
+                    <td scope="row" id="cep">'.$reg['desc_CEP'].'</td>
+                    <td scope="row">'.$reg['sed_Cod_rastreio'].'</td>
+                    <td scope="row">'.$reg['sed_Valor'].'</td>
+                    <td scope="row">'.$reg['sed_Pago'].'</td>
                     
                 </tr>
                 </tbody>
-               </tale>
+            </tale>
                 ';
             }
         }
