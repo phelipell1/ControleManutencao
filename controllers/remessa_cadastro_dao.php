@@ -1,36 +1,24 @@
 <?php
 session_start();
 require_once('../Connections/Conexao.php');
-$user_id = $_SESSION['userId'];
 $ObjDB = new DB();
 $link = $ObjDB -> connecta_mysql();
 
-$rem_Remetente = filter_input(INPUT_POST, 'rem_Remetente', FILTER_SANITIZE_STRING);
-$rem_Destinatario = filter_input(INPUT_POST, 'rem_Destinatario', FILTER_SANITIZE_STRING);
-$est_Codigo = filter_input(INPUT_POST, 'est_Codigo', FILTER_SANITIZE_STRING);
-$cid_Codigo = filter_input(INPUT_POST, 'cid_Codigo', FILTER_SANITIZE_STRING);
-$temp_Empresa = filter_input(INPUT_POST, 'temp_Empresa', FILTER_SANITIZE_STRING);
-$rms_Descricao = filter_input(INPUT_POST, 'rms_Descricao', FILTER_SANITIZE_STRING);
+$empresa = filter_input(INPUT_POST, 'cbmEmpresa', FILTER_SANITIZE_STRING);
+$expeditor = filter_input(INPUT_POST, 'cmbExpeditor', FILTER_SANITIZE_STRING);
+$uf = filter_input(INPUT_POST, 'est_Codigo', FILTER_SANITIZE_STRING);
+$cidade = filter_input(INPUT_POST, 'cid_Codigo', FILTER_SANITIZE_STRING);
+$acDestinatario = filter_input(INPUT_POST, 'cbmAcDestinatario', FILTER_SANITIZE_STRING);
+$user_id = $_SESSION['userId'];
+$data_system = date('Y-m-d');
 
-$query_insert = "INSERT INTO Remessas (rms_Descricao, rem_Remetente, des_Destinatario, cid_Coodigo, est_Codigo, temp_Empresa, rms_Rastreio, rms_DataCriacao) 
+
+$query_insert = "INSERT INTO regSedex (sed_Data, sed_DataPostagem, emp_Codigo, rem_Codigo, cid_Codigo, est_Codigo, des_Codigo, sed_Cod_rastreio, sed_Valor, sed_Pago, sed_Extraviado, sed_Operador, sed_DataAlteracao) 
 VALUES
-('$rms_Descricao', '$rem_Remetente', '$rem_Destinatario', '$cid_Codigo', '$est_Codigo','$temp_Empresa', 'NULL', NOW())";   
+('$data_system', default, '$empresa', '$expeditor', '$cidade', '$uf', '$acDestinatario', default, default, default, default, default, default)";   
 
-if($rem_Remetente == "Selecione"){
-    echo'Atenção ! E necessário adicionar Remetente para continuar';
-    die();
-}elseif($rem_Destinatario == 'Selecione'){
-    echo'Atenção ! E necessário adicionar Destinatário para continuar';
-    die();
-}elseif($est_Codigo == "Selecione"){
-    echo'Atenção ! E necessário adicionar Estado para continuar';
-    die();
-}elseif($cid_Codigo == "Selecione"){
-    echo'Atenção ! E necessário adicionar Cidade para continuar';
-    die();
-}elseif($temp_Empresa == "Selecione"){
-    echo'Atenção ! E necessário adicionar Envio para continuar';
-    die();
+if($empresa == "" || $expeditor == "" || $cidade == "" || $uf == "" || $acDestinatario == ""){
+    echo 'Preencha os campos para continuar.';
 }
 
 $result_insert = mysqli_query($link, $query_insert);
