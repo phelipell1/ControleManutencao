@@ -6,7 +6,6 @@
     $ObjDB = new DB();
     $link = $ObjDB -> connecta_mysql();
 
-    $id = filter_input(INPUT_GET, 'uf', FILTER_SANITIZE_NUMBER_INT);
     $ids = $_POST['ufs'];
 
     $query = "SELECT * FROM Cidades where codUf = $ids order by Cidade";
