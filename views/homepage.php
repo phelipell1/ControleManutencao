@@ -29,13 +29,13 @@ if (!isset($_SESSION['login'])) {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     <!--Carrega dados da tabela-->
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $.ajax({
-                    url: '../controllers/preenche_tabela_home.php',
-                    success: function(data) {
-                        $("#tbody-dados").html(data);
-                    }
-                });
+                url: '../controllers/preenche_tabela_home.php',
+                success: function(data) {
+                    $("#tbody-dados").html(data);
+                }
+            });
         });
     </script>
 
@@ -244,8 +244,7 @@ if (!isset($_SESSION['login'])) {
             </nav>
             <div class="container" id="dados-info">
                 <div class="shadow-lg mb-5 p-3 rounded border">
-                    <form action="">
-                        <? echo $data ?>
+                    <form id="form_home">
                         <div class="row">
                             <div class="form-group col-2">
                                 <label for="txtCep">CEP</label>
@@ -256,52 +255,50 @@ if (!isset($_SESSION['login'])) {
                                 <input type="text" name="txtCodRastreio" id="txtCodRastreio" class="form-control form-control-sm" onkeydown="this.value = this.value.toUpperCase();" maxlength="13">
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary btn-sm btn-conf">Buscar</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-conf">Buscar</button>
                             </div>
-                            <div class="col-3"></div>
-                            <div class="form-group">
-                                <label for="cbm_Mes">Mês</label>
-                                <select name="cbm_Mes" id="cbm_Mes" class="form-control form-control-sm">
-                                    <option selected><? echo $data ?></option>
-                                    <option value="01">aneiro</option>
-                                    <option value="02">fevereiro</option>
-                                    <option value="03">março</option>
-                                    <option value="04">abril</option>
-                                    <option value="05">maio</option>
-                                    <option value="06">junho</option>
-                                    <option value="07">julho</option>
-                                    <option value="08">agosto</option>
-                                    <option value="09">setembro</option>
-                                    <option value="010">outubro</option>
-                                    <option value="11">novembro</option>
-                                    <option value="12">dezembro</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="cbm_Mes">Mês</label>
-                                <select name="cbm_Mes" id="cbm_Mes" class="form-control form-control-sm">
-                                    <option value="2020">2020</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2024">2024</option>
-                                    <option value="2025">2025</option>
-                                </select>
-                            </div>
-                        </div>
                     </form>
-                    <hr>
-                    <div class="col">
-                        <div id="tbody-dados">
-
-                        </div>
+                    <div class="col-3"></div>
+                    <div class="form-group">
+                        <label for="cbm_Mes">Mês</label>
+                        <select name="cbm_Mes" id="cbm_Mes" class="form-control form-control-sm">
+                            <option selected><? echo $data ?></option>
+                            <option value="01">janeiro</option>
+                            <option value="02">fevereiro</option>
+                            <option value="03">março</option>
+                            <option value="04">abril</option>
+                            <option value="05">maio</option>
+                            <option value="06">junho</option>
+                            <option value="07">julho</option>
+                            <option value="08">agosto</option>
+                            <option value="09">setembro</option>
+                            <option value="010">outubro</option>
+                            <option value="11">novembro</option>
+                            <option value="12">dezembro</option>
+                        </select>
                     </div>
-
+                    <div class="form-group col-2">
+                        <label for="cbm_Mes">Mês</label>
+                        <select name="cbm_Mes" id="cbm_Mes" class="form-control form-control-sm">
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="col">
+                    <div id="tbody-dados">
+                    </div>
                 </div>
             </div>
-            <div id="new-form"></div>
-            <div id="form-remessa"></div>
         </div>
+        <div id="new-form"></div>
+        <div id="form-remessa"></div>
+    </div>
     </div>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>

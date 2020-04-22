@@ -16,12 +16,12 @@
     
     if($resust_busca == true){
         if($linhas <= 0){
-            echo'Nada por aqui'.$data;
+            echo'Não possui registros.';
         }else{
             echo'
             <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
             <link rel="stylesheet" href="../CSS/style2.css">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">Dt postagem</th>
@@ -35,7 +35,7 @@
                         ';
             while($reg = mysqli_fetch_array($resust_busca)){
                 echo'
-                <tbody>
+                <tbody class="small">
                 <tr>
                     <td scope="row">'.$reg['rms_dataCriacao'].'</td>
                     <td scope="row">'.$reg['desc_AcAbreviado'].'</td>
