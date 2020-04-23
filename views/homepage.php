@@ -134,7 +134,15 @@ if (!isset($_SESSION['login'])) {
                     }
                 });
             });
-
+            $('#btn_remessas').click(function() {
+                $.ajax({
+                    url: '../forms/remessas_enviadas.php',
+                    success: function(data) {
+                        $("#new-form").html(data).show();
+                        $('#dados-info').hide();
+                    }
+                });
+            });
         });
     </script>
     <!--Script para mascara de input-->
@@ -194,16 +202,16 @@ if (!isset($_SESSION['login'])) {
                 </li>
 
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img src="../imagens/relatorio.png" width="30" alt=""> Relatórios</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img src="../imagens/relatorio.png" width="30" alt=""> Remessas</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="../relatorios/relatoriogeral.php">Remessas Enviadas</a>
+                        <li id="btn_remessas">
+                            <a href="#">Remessas Enviadas</a>
                         </li>
                         <li>
-                            <a href="../relatorios/relatoriogeral.php">Manutenção</a>
+                            <a href="#">Manutenção</a>
                         </li>
                         <li>
-                            <a href="../relatorios/relatoriogeral.php">Remessas Enviadas</a>
+                            <a href="#">Remessas Enviadas</a>
                         </li>
                     </ul>
                 </li>

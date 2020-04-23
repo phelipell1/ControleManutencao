@@ -15,7 +15,7 @@ $data_system = date('Y-m-d');
 
 $query_insert = "INSERT INTO regSedex (sed_Data, sed_DataPostagem, emp_Codigo, rem_Codigo, cid_Codigo, est_Codigo, des_Codigo, sed_Cod_rastreio, sed_Valor, sed_Pago, sed_Extraviado, sed_Operador, sed_DataAlteracao) 
 VALUES
-('$data_system', default, '$empresa', '$expeditor', '$cidade', '$uf', '$acDestinatario', default, default, default, default, default, default)";   
+('$data_system', default, '$empresa', '$expeditor', '$cidade', '$uf', '$acDestinatario', default, default, 0, default, default, default)";   
 
 if($empresa == "" || $expeditor == "" || $cidade == "" || $uf == "" || $acDestinatario == ""){
     echo 'Preencha os campos para continuar.';
