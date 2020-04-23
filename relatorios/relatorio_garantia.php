@@ -6,12 +6,12 @@ if(!isset($_SESSION['login'])){
 require_once('../Connections/Conexao.php');
 $dataCompra = '02/05/2018';
 
-
-
-//$date = date_create();
-setlocale(LC_TIME, 'portuguese');
+setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
+$data = strftime('%A-feira, %d de %B de %Y', strtotime('today'));
+
 $date = date('Y-m-d h:m:s');
+$hora = date('H:m:s');
 $txt_id = filter_input(INPUT_GET, 'cod', FILTER_SANITIZE_NUMBER_INT);
 $ObjDB = new DB();
 $link = $ObjDB->connecta_mysql();
@@ -65,7 +65,7 @@ if ($result) {
     <div class="container">
         <img class="img-top" src="../imagens/fr.png" width="180">
         <h1>Solicitação de reparo equipamento na garantia</h1>
-        <h4><? echo 'Goiânia: ' . strftime("%A-feira, %d de %B de %Y %H:%M:%S  ", strtotime($date)) ?></h4>
+        <h4><? echo 'Goiânia: '.$data.' '.$hora?></h4>
     </div>
     <div class="container top ">
         <div class="form-row">

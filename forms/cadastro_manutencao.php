@@ -118,7 +118,7 @@
                 </div>
                 <div class="form-group col">
                     <label for="textcodigoSut">SUT</label>
-                    <input type="text" name="textcodigoSut" id="textcodigoSut" class="form-control form-control-sm" placeholder="000000" maxlength="5">
+                    <input type="text" name="textcodigoSut" id="textcodigoSut" class="form-control form-control-sm" placeholder="000000" maxlength="6">
                 </div>
                 <div class="form-group col">
                     <label for="textpatrimonio">Patrimônio</label>
