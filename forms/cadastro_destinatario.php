@@ -143,11 +143,11 @@
                     <select name="txt_Transporte" id="txt_Transporte" class="form-control form-control-sm">
                         <option selected>-Selecione-</option>
                         <?
-                            $query_tmp ="select * from TipoEmpresa";
+                            $query_tmp ="select * Empresa where tem_Codigo = 3";
                             $result_tmp = mysqli_query($link, $query_tmp);
                             $rows_tmp = mysqli_num_rows($result_tmp);
                             foreach($result_tmp as $rows_tmp){
-                                echo'<option value="'.$rows_tmp['tem_Codigo'].'">'.$rows_tmp['tem_TipoEmpresa'].'</option>';
+                                echo'<option value="'.$rows_tmp['emp_Codigo'].'">'.$rows_tmp['emp_Descricao'].'</option>';
                             }
                         ?>
                     </select>
