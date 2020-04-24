@@ -6,8 +6,8 @@ $cod = $_GET['cod'];
 $query_busca = "select reg.sed_Codigo, reg.sed_Data, emp.emp_Descricao,r.rem_Abreviado, cid.Cidade, est.UF,
 des.desc_AcAbreviado from regSedex as reg
 left join Empresa as emp on emp.emp_Codigo = reg.emp_Codigo
-left join Cidades as cid on cid.codCidade = reg.sed_Codigo
-left join UF as est on est.codUf = reg.sed_Codigo
+left join Cidades as cid on cid.codCidade = reg.cid_Codigo
+left join UF as est on est.codUf = reg.est_Codigo
 left join Destinatario as des on des.cod_Destinatario = reg.des_Codigo
 left join Remetente as r on r.rem_Codigo = reg.rem_Codigo
 where sed_Codigo = $cod";
