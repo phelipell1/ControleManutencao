@@ -182,7 +182,7 @@
                     <select name="txtcodRemessa" id="txtcodRemessa" class="form-control form-control-sm">
                         <option selected>-Selecione-</option>
                         <?
-                            $query_sts ="select * from regSedex where sed_Data like '%$date_atual%'";
+                            $query_sts ="select * from regSedex order by sed_Data";
                             $result_sts = mysqli_query($link, $query_sts);
                             $rows_sts = mysqli_num_rows($result_sts);
                             foreach($result_sts as $rows_sts){
