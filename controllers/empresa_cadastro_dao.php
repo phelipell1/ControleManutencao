@@ -61,7 +61,7 @@ if($txtemp_CNPJ == ""){
 $result_insert = mysqli_query($link, $query_insert);
 
 if($result_insert == true){
-    echo 'Destinatário inserido com sucesso !';
+    echo 'Empresa cadastrada com sucesso !';
 }else{
     echo 'Atenção ! existe um erro ao tentar executar script'.'<br>';
 }
