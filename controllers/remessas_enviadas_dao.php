@@ -17,22 +17,7 @@ $linhas = $resust_busca->num_rows;
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../CSS/style2.css">
 <script src="../jquery/jquery-3.4.1.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#formulario').hide();
-        $('#btn_Editar').click(function() {
-            $.ajax({
-                url: '../forms/update_remessa.php',
-                success: function(data) {
-                    $("#formulario").html(data).show();
-                    $('#dados-info').hide();
-                }
-            });
-            $('#tbl_dados').hide();
-            $('#formulario').show();
-        });
-    });
-</script>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -76,10 +61,11 @@ $linhas = $resust_busca->num_rows;
                                         <td scope="row">' . $reg['sed_Cod_rastreio'] . '</td>
                                         <td scope="row">' . $reg['sed_Valor'] . '</td>
                                         <td scope="row">' . $reg['sed_Pago'] . '</td>
-                                        <td scope="row"><a class="btn btn-info btn-sm" id="btn_Editar">Editar</a>
+                                        <td scope="row"><a href="../forms/update_remessa.php?cod='.$reg['sed_Codigo'].'" class="btn btn-info btn-sm" id="btn_Editar">Editar</a>
                                         <a href="../forms/listar_itens_remessa.php?reg=' . $reg['sed_Codigo'] . '" class="btn btn-info btn-sm" id="btn_Visualizar">Visualizar</a></td>
                                         </tr>
                                     </tbody>';
+                                    $valor = $reg['sed_Codigo'];
                     }
                 }
             }
@@ -90,5 +76,21 @@ $linhas = $resust_busca->num_rows;
     <div class="container" id="formulario">
     </div>
 </body>
-
+<script>
+    $(document).ready(function() {
+        $('#formulario').hide();
+        $('#btn_Editar').click(function() {
+            $.ajax({
+                url: '../forms/update_remessa.php?val=<?echo$valor?>&',
+                method: 'get',
+                success: function(data) {
+                    $("#formulario").html(data).show();
+                    $('#dados-info').hide();
+                }
+            });
+            $('#tbl_dados').hide();
+            $('#formulario').show();
+        });
+    });
+</script>
 </html>

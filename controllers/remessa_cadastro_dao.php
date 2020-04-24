@@ -24,7 +24,7 @@ if($empresa == "" || $expeditor == "" || $cidade == "" || $uf == "" || $acDestin
 $result_insert = mysqli_query($link, $query_insert);
 
 if($result_insert == true){
-    echo 'Remetente cadastrado com sucesso !';
+    echo 'Remessa cadastrada com sucesso !';
 }else{
     echo 'Atenção ! existe um erro ao tentar executar script'.'<br>'.mysqli_error($link);
 }

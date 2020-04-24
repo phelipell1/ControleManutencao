@@ -38,6 +38,7 @@
                                     <th scope="col">Cód. Rastreio</th>
                                     <th scope="col">Valor</th>
                                     <th scope="col">Pago?</th>
+                                    <th scope="col">ações</th>
                                 </tr>
                             </thead>
                             
@@ -53,6 +54,7 @@
                     <td scope="row">'.$reg['sed_Cod_rastreio'].'</td>
                     <td scope="row">'.$reg['sed_Valor'].'</td>
                     <td scope="row">'.$reg['sed_Pago'].'</td>
+                    <td scope="row"><a href="../controllers/rastreio_envios.php?cod_rastreio='.$reg['sed_Cod_rastreio'].'"><img src="../imagens/logo-rastreamento.png" width="90" alt=""></a></td>
                     
                 </tr>
                 </tbody>

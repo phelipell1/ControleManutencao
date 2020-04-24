@@ -10,7 +10,7 @@
 <script>
     $(document).ready(function () { 
         $("#textrem_Fixo").mask("(99)9999-9999");
-        $("#textrem_Movel").mask("(99) 9 9999-9999");
+        $("#textrem_Movel").mask("(99) 99999-9999");
 
         $('#btnCadastrar').click(function(){
         $.ajax({

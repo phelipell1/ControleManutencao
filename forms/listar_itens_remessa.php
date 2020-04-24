@@ -6,7 +6,16 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 $data = strftime('%Y-%m', strtotime('today'));
 $reg = $_GET['reg'];
-$query_busca = "select * from EntradaManutencao where rms_Codigo = $reg";
+$query_busca = "select t.codEntrada, e.descricao, m.NomeModelo , t.IMEI, t.codigoSut, t.patrimonio,
+t.descricaoDefeito, date_format(t.dateEntrada,'%d-%m-%Y %h:%m:%s') as dat, c.Cidade, u.UF, d.Departamento, s.Status, l.Nome,
+t.rms_codigo from EntradaManutencao as t
+inner join Equipamentos as e on e.codEquipamento = t.codEquipamento
+inner join ModeloEquipamento as m on m.codModelo = t.codMDE
+inner join Cidades as c on c.codCidade = t.codCidade
+inner join UF as u on u.codUf = t.codUf
+inner join Departamento as d on d.codDepartamento = t.codDepartamento
+inner join StatusServico as s on s.codStatus = t.codStatus
+inner join Usuario as l on l.IdUsuario = t.codUser where rms_Codigo = $reg";
 
 $resust_busca = mysqli_query($link, $query_busca);
 $linhas = $resust_busca->num_rows;
@@ -14,6 +23,7 @@ $linhas = $resust_busca->num_rows;
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../CSS/style2.css">
 <script src="../jquery/jquery-3.4.1.js"></script>
+<script src="../jquery/mask_det.js"></script>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -23,7 +33,6 @@ $linhas = $resust_busca->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <div class="container">
         <div class="shadow-lg mb-5 p-3 rounded border">
@@ -51,12 +60,12 @@ $linhas = $resust_busca->num_rows;
                                         echo '
                                         <tbody class="small">
                                         <tr>
-                                        <td scope="row">' . $reg['codEquipamento'] . '</td>
-                                                <td scope="row">' . $reg['codMDE'] . '</td>
+                                        <td scope="row">' . $reg['descricao'] . '</td>
+                                                <td scope="row">' . $reg['NomeModelo'] . '</td>
                                                 <td scope="row">' . $reg['IMEI'] . '</td>
                                                 <td scope="row">' . $reg['codigoSut'] . '</td>
                                                 <td scope="row">' . $reg['patrimonio'] . '</td>
-                                                <td scope="row">' . $reg['dateEntrada'] . '</td>
+                                                <td scope="row">' . $reg['dat'] . '</td>
                                                 <td scope="row"><a href="../relatorios/relatorio_garantia.php?cod='.$reg['codEntrada'].'">Imprimir</a></td>
                                                 </tr>
                                                 </tbody>';
@@ -69,5 +78,4 @@ $linhas = $resust_busca->num_rows;
         </div>
     </div>
 </body>
-
 </html>
