@@ -82,6 +82,14 @@ if (!isset($_SESSION['login'])) {
                         $('#dados-info').hide();
                     }
                 });
+            }else if(sts_page == '5') {
+                $.ajax({
+                    url: '../forms/update_manutencao.php',
+                    success: function(data) {
+                        $("#new-form").html(data).show();
+                        $('#dados-info').hide();
+                    }
+                });
             }
 
             /*Deste bom em diante será configurado as funções dos botões*/

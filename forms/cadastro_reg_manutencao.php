@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <script src="../jquery/jquery-3.4.1.js"></script>
 <script>
-    $(document).read(function(){
+    $(document).ready(function(){
         $('#btn_Gravar').click(function() {
             $.ajax({
                 url: '../controllers/gravar_hist_manutencao.php',
@@ -15,6 +15,10 @@
                 }
             })
         });
+        $('#btn_Voltar').click(function() {
+            window.location = '../views/homepage.php?rms=5';
+        });
+        
     });
 </script>
 <div class="container">
