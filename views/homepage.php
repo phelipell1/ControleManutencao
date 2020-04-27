@@ -143,6 +143,16 @@ if (!isset($_SESSION['login'])) {
                     }
                 });
             });
+
+            $('#btn_Manutencao').click(function() {
+                $.ajax({
+                    url: '../forms/update_manutencao.php',
+                    success: function(data) {
+                        $("#new-form").html(data).show();
+                        $('#dados-info').hide();
+                    }
+                });
+            });
         });
     </script>
     <!--Script para mascara de input-->
@@ -200,15 +210,14 @@ if (!isset($_SESSION['login'])) {
                         </li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img src="../imagens/relatorio.png" width="30" alt=""> Remessas</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li id="btn_remessas">
                             <a href="#">Remessas Enviadas</a>
                         </li>
-                        <li>
-                            <a href="#">Manutenção</a>
+                        <li id="btn_Manutencao">
+                            <a href="#">Baixa manutenção</a>
                         </li>
                         <li>
                             <a href="#">Remessas Enviadas</a>
