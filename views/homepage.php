@@ -227,9 +227,6 @@ if (!isset($_SESSION['login'])) {
                         <li id="btn_Manutencao">
                             <a href="#">Baixa manutenção</a>
                         </li>
-                        <li>
-                            <a href="#">Remessas Enviadas</a>
-                        </li>
                     </ul>
                 </li>
                 <li>

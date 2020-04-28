@@ -14,7 +14,7 @@ inner join Cidades as c on c.codCidade = t.codCidade
 inner join UF as u on u.codUf = t.codUf
 inner join Departamento as d on d.codDepartamento = t.codDepartamento
 inner join StatusServico as s on s.codStatus = t.codStatus
-inner join Usuario as l on l.IdUsuario = t.codUser";
+inner join Usuario as l on l.IdUsuario = t.codUser where t.codStatus = 1";
 
 $resust_busca = mysqli_query($link, $query_busca);
 $linhas = $resust_busca->num_rows;

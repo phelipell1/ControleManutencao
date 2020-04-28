@@ -35,27 +35,27 @@
                     <label for="text_hist_descricao">Resolução</label>
                     <textarea name="text_hist_descricao" id="text_hist_descricao" cols="" rows="2" class="form-control"></textarea>
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-2">
                     <label for="txt_hist_dataDevolucao">Devolução</label>
                     <input type="date" name="txt_hist_dataDevolucao" id="txt_hist_dataDevolucao" class="form-control form-control-sm">
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-2">
                     <label for="txt_hist_dataPostagem">Devolução</label>
                     <input type="date" name="txt_hist_dataPostagem" id="txt_hist_dataPostagem" class="form-control form-control-sm">
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-2">
                     <label for="txt_hist_dataDespacho">Devolução</label>
                     <input type="date" name="txt_hist_dataDespacho" id="txt_hist_dataDespacho" class="form-control form-control-sm">
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-2">
                     <label for="txt_hist_dataServico">Devolução</label>
                     <input type="date" name="txt_hist_dataServico" id="txt_hist_dataServico" class="form-control form-control-sm">
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-2">
                     <label for="txt_hist_fechamento">Devolução</label>
                     <input type="date" name="txt_hist_fechamento" id="txt_hist_fechamento" class="form-control form-control-sm">
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-2">
                     <label for="txt_hist_dataRetorno">Devolução</label>
                     <input type="date" name="txt_hist_dataRetorno" id="txt_hist_dataRetorno" class="form-control form-control-sm">
                 </div>
@@ -67,7 +67,7 @@
                     <label for="txt_num_os">N° OS</label>
                     <input type="text" name="txt_num_os" id="txt_num_os" class="form-control form-control-sm">
                 </div>
-                <div class="col-7"></div>
+                <div class="col-6"></div>
                 <div class="form-group col">
                 <button type="button" id="btn_Gravar" class="btn btn-sm btn-success">Gravar</button>
                 <button type="button" id="btn_Voltar" class="btn btn-sm btn-success">Voltar</button>
