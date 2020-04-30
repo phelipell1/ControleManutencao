@@ -233,7 +233,7 @@ if (!isset($_SESSION['login'])) {
                     <a href="#" id="btnContatos"><img src="../imagens/contatos.png" width="30" alt=""> Contatos</a>
                 </li>
                 <li>
-                    <a href="../views/logout.php"><img src="../imagens/logout2.png" width="25" alt=""><span> Sair</span></a>
+                    <a href="../views/logout.php"><img src="../imagens/logout2.png" width="25" alt="" ><span> Sair</span></a>
                 </li>
             </ul>
             <div class="row">

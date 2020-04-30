@@ -45,6 +45,7 @@ if ($result == true) {
             $(this).val($(this).val().toUpperCase());
         });
 
+        
         $('#btn_update').click(function(){
             $.ajax({
                 url: '../controllers/update_remessa_dao.php?id=<?echo$cod?>',
@@ -56,6 +57,20 @@ if ($result == true) {
                 }
             });
         })
+
+        //Email//
+        $('#btn_update').click(function(){
+            $.ajax({
+                url: '../configEmail/envia_email.php?id=<?echo$cod?>',
+                method: 'post',
+                data: $('#formulario_update').serialize(),
+                success: function(data){
+                    alert(data);
+                    window.location = "../forms/remessas_enviadas.php";
+                }
+            });
+        })
+        ///
     });
 </script>
 <div class="container">
