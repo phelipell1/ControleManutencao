@@ -34,6 +34,7 @@ if (!isset($_SESSION['login'])) {
                 url: '../controllers/preenche_tabela_home.php',
                 success: function(data) {
                     $("#tbody-dados").html(data);
+
                 }
             });
         });
@@ -166,7 +167,35 @@ if (!isset($_SESSION['login'])) {
     <!--Script para mascara de input-->
     <script>
         $(document).ready(function() {
-            $('#txtCep').mask('99999-999');
+            /*$('#txtCep').mask('99999-999');*/
+        });
+    </script>
+    <!--Apartir daqui o script será responsável pela busca da home, das ações de busca CEP, Rastreio e pela ação dos combox de mês e ano-->
+    <script>
+        $(document).ready(function(){
+            $('#cbm_Mes').change(function(){
+                $.ajax({
+                    url: '../controllers/buscas_mes_dao.php',
+                    method: 'post',
+                    data: {mes: $('#cbm_Mes').val()},
+                    success: function(data){
+                        $("#tbody-dados").html(data);
+                    }
+                });
+            });
+            $('#btn_busca').click(function(){
+                $.ajax({
+                    url: '../controllers/busca_cep_dao.php',
+                    method: 'post',
+                    data: {
+                        cep: $('#txtCep').val(),
+                        codR: $('#txtCodRastreio').val()
+                    },
+                    success: function(data){
+                        $("#tbody-dados").html(data);
+                    }
+                });
+            });
         });
     </script>
 </head>
@@ -230,6 +259,17 @@ if (!isset($_SESSION['login'])) {
                     </ul>
                 </li>
                 <li>
+                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img src="../imagens/relatorio.png" width="30" alt=""> Estoque</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu1">
+                        <li id="btn_remessas">
+                            <a href="#">Equipamentos</a>
+                        </li>
+                        <li id="btn_Manutencao">
+                            <a href="#">Saída</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#" id="btnContatos"><img src="../imagens/contatos.png" width="30" alt=""> Contatos</a>
                 </li>
                 <li>
@@ -277,7 +317,7 @@ if (!isset($_SESSION['login'])) {
                                 <input type="text" name="txtCodRastreio" id="txtCodRastreio" class="form-control form-control-sm" onkeydown="this.value = this.value.toUpperCase();" maxlength="13">
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn-primary btn-sm btn-conf">Buscar</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-conf" id="btn_busca">Buscar</button>
                             </div>
                     </form>
                     <div class="col-3"></div>
