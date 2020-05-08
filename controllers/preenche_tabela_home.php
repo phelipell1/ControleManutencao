@@ -11,9 +11,6 @@
     left join Destinatario as des on des.cod_Destinatario = reg.des_Codigo
     where sed_Pago = true
     and sed_Data like '%$data%'";
-
-    
-
     $resust_busca = mysqli_query($link, $query_busca);
     $linhas = $resust_busca->num_rows;
     

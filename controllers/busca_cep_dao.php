@@ -7,6 +7,10 @@ $link = $ObjDB->connecta_mysql();
     $data = strftime('%Y-%m', strtotime('today'));*/
 $cep = $_POST['cep'];
 $codR = $_POST['codR'];
+if($cep == "" && $codR == ""){
+    echo'Preencha um dos campos para continuar a busca.';
+    die();
+}else{
 if ($cep == "") {
     $query_busca = "select date_format(reg.sed_DataPostagem,'%d-%m-%Y') as dat, des.desc_AcAbreviado, cid.Cidade, des.desc_CEP,
         reg.sed_Cod_rastreio, reg.sed_Valor, reg.sed_Pago from regSedex as reg
@@ -26,6 +30,7 @@ if ($cep == "") {
     $error = 500;
     die();
 }
+}
 
 $resust_busca = mysqli_query($link, $query_busca);
 $linhas = $resust_busca->num_rows;
@@ -39,15 +44,6 @@ if ($resust_busca == true) {
             <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
             <link rel="stylesheet" href="../CSS/style2.css">
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-            <script>
-            $(document).ready(function () { 
-                var error == "' . $error . '";
-                if(error == 500){
-                    $("#tbl").hide();
-                }else{
-                    $("tbl").show();
-                }
-            </script>
             <table id="tbl" class="table table-bordered table-sm">
                             <thead>
                                 <tr>

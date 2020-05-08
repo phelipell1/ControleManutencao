@@ -9,7 +9,7 @@ $query_busca = "select date_format(reg.sed_DataPostagem,'%d-%m-%Y') as dat, des.
     reg.sed_Cod_rastreio, reg.sed_Valor, reg.sed_Pago, reg.sed_Codigo from regSedex as reg
     left join Cidades as cid on cid.codCidade = reg.cid_Codigo
     left join Destinatario as des on des.cod_Destinatario = reg.des_Codigo
-    where sed_Data like '%$data%' and sed_Pago = false";
+    where sed_Pago = 0";
 
 $resust_busca = mysqli_query($link, $query_busca);
 $linhas = $resust_busca->num_rows;

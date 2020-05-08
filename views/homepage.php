@@ -162,6 +162,16 @@ if (!isset($_SESSION['login'])) {
                     }
                 });
             });
+
+            $('#btn_Lista_Almoxarifado').click(function() {
+                $.ajax({
+                    url: '../controllers/lista_equipamentos_estoque.php',
+                    success: function(data) {
+                        $("#new-form").html(data).show();
+                        $('#dados-info').hide();
+                    }
+                });
+            });
         });
     </script>
     <!--Script para mascara de input-->
@@ -259,9 +269,9 @@ if (!isset($_SESSION['login'])) {
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img src="../imagens/relatorio.png" width="30" alt=""> Estoque</a>
+                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img src="../imagens/estoques.png" width="30" alt=""> Estoque</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu1">
-                        <li id="btn_remessas">
+                        <li id="btn_Lista_Almoxarifado">
                             <a href="#">Equipamentos</a>
                         </li>
                         <li id="btn_Manutencao">
