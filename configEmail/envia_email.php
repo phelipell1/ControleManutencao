@@ -53,7 +53,7 @@ $mail->SMTPAuth = true;
 // obs: Use a mesma senha da sua conta de email 
 $mail->Username = 'frincorporadora@hotmail.com';
 //$mail->Username = 'webmaster@freng.com.br'; 
-$mail->Password = 'Fw38q1V7sN';
+$mail->Password = '**********';
 
 // Configurações de compatibilidade para autenticação em TLS 
 $mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) ); 
