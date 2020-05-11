@@ -40,8 +40,7 @@ $mail = new PHPMailer();
 $mail->IsSMTP(); 
 
 // Enviar por SMTP 
-//$mail->Host = "smtp.office365.com";
-$mail->Host = "smtp.office365.com"; 
+$mail->Host = "smtp.office365.com";
 
 // Você pode alterar este parametro para o endereço de SMTP do seu provedor 
 $mail->Port = 587; 
@@ -54,7 +53,11 @@ $mail->SMTPAuth = true;
 // obs: Use a mesma senha da sua conta de email 
 $mail->Username = 'frincorporadora@hotmail.com';
 //$mail->Username = 'webmaster@freng.com.br'; 
+<<<<<<< HEAD
 $mail->Password = 'Fw38q1V7sN';
+=======
+$mail->Password = '**********';
+>>>>>>> 1f3d2a0a7d523406f37ff5d0ae1a19ea8ff26595
 
 // Configurações de compatibilidade para autenticação em TLS 
 $mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) ); 

@@ -1,2 +1,5 @@
 Connections/Conexao.php
 imagens/olá.png
+configEmail/email_atende_chamado.php
+configEmail/envia_email copy.php
+configEmail/envia_email.php
