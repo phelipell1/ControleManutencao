@@ -40,23 +40,23 @@
                     <input type="date" name="txt_hist_dataDevolucao" id="txt_hist_dataDevolucao" class="form-control form-control-sm">
                 </div>
                 <div class="form-group col-2">
-                    <label for="txt_hist_dataPostagem">Devolução</label>
+                    <label for="txt_hist_dataPostagem">Postagem</label>
                     <input type="date" name="txt_hist_dataPostagem" id="txt_hist_dataPostagem" class="form-control form-control-sm">
                 </div>
                 <div class="form-group col-2">
-                    <label for="txt_hist_dataDespacho">Devolução</label>
+                    <label for="txt_hist_dataDespacho">Despacho</label>
                     <input type="date" name="txt_hist_dataDespacho" id="txt_hist_dataDespacho" class="form-control form-control-sm">
                 </div>
                 <div class="form-group col-2">
-                    <label for="txt_hist_dataServico">Devolução</label>
+                    <label for="txt_hist_dataServico">Serviço</label>
                     <input type="date" name="txt_hist_dataServico" id="txt_hist_dataServico" class="form-control form-control-sm">
                 </div>
                 <div class="form-group col-2">
-                    <label for="txt_hist_fechamento">Devolução</label>
+                    <label for="txt_hist_fechamento">Fechamento</label>
                     <input type="date" name="txt_hist_fechamento" id="txt_hist_fechamento" class="form-control form-control-sm">
                 </div>
                 <div class="form-group col-2">
-                    <label for="txt_hist_dataRetorno">Devolução</label>
+                    <label for="txt_hist_dataRetorno">Retorno</label>
                     <input type="date" name="txt_hist_dataRetorno" id="txt_hist_dataRetorno" class="form-control form-control-sm">
                 </div>
                 <div class="form-group col-3">

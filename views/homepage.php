@@ -92,6 +92,15 @@ if (!isset($_SESSION['login'])) {
                     }
                 });
             }
+            else if(sts_page == '6') {
+                $.ajax({
+                    url: '../controllers/lista_equipamentos_estoque.php',
+                    success: function(data) {
+                        $("#new-form").html(data).show();
+                        $('#dados-info').hide();
+                    }
+                });
+            }
 
             /*Deste bom em diante será configurado as funções dos botões*/
             $('#bt').click(function() {

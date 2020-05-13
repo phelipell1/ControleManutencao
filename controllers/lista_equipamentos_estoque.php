@@ -38,7 +38,7 @@ $linhas = $resust_busca->num_rows;
             <h4>Itens</h4>
             <hr>
             <div class="table-responsive" id="tbl_dados">
-                <table class="table table-bordered table-sm">
+               <table class="table table-bordered table-sm">
                     <thead>
                         <tr>
                             <th scope="col">Equipamento</th>
@@ -47,7 +47,8 @@ $linhas = $resust_busca->num_rows;
                             <th scope="col">SUT</th>
                             <th scope="col">Patrimonio</th>
                             <th scope="col">Entrada</th>
-                            <th scope="col">Ações</th>
+                            <th scope="col">Status</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                             <?
@@ -57,17 +58,19 @@ $linhas = $resust_busca->num_rows;
                                 } else {
                                     while ($reg = mysqli_fetch_array($resust_busca)) {
                                         echo '
-                                        <tbody class="small">
-                                        <tr>
-                                        <td scope="row">' . $reg['descricao'] . '</td>
-                                                <td scope="row">' . $reg['NomeModelo'] . '</td>
-                                                <td scope="row">' . $reg['IMEI'] . '</td>
-                                                <td scope="row">' . $reg['codigoSut'] . '</td>
-                                                <td scope="row">' . $reg['patrimonio'] . '</td>
-                                                <td scope="row">' . $reg['dat'] . '</td>
-                                                <td scope="row"><a href="../forms/update_itens.php?cod='.$reg['codEntrada'].'">Editar</a></td>
-                                                </tr>
-                                                </tbody>';
+                                    <tbody class="small">
+                                    <tr>    
+                                            <td scope="row">' . $reg['descricao'] . '</td>
+                                            <td scope="row">' . $reg['NomeModelo'] . '</td>
+                                            <td scope="row">' . $reg['IMEI'] . '</td>
+                                            <td scope="row">' . $reg['codigoSut'] . '</td>
+                                            <td scope="row">' . $reg['patrimonio'] . '</td>
+                                            <td scope="row">' . $reg['dat'] . '</td>
+                                            <td scope="row">' . $reg['Status'] . '</td>
+                                            <td scope="row"><a href="../forms/cadastro_hist_equipamento.php?cod='.$reg['codEntrada'].'"><button class="btn btn-warning btn-sm">Nova OS</button></a></td>
+                                        </tr>
+                                        </tbody>
+                                        ';
                                     }
                                 }
                             }
