@@ -181,6 +181,16 @@ if (!isset($_SESSION['login'])) {
                     }
                 });
             });
+
+            $('#btn_Saida').click(function() {
+                $.ajax({
+                    url: '../controllers/lista_estoque_saida.php',
+                    success: function(data) {
+                        $("#new-form").html(data).show();
+                        $('#dados-info').hide();
+                    }
+                });
+            });
         });
     </script>
     <!--Script para mascara de input-->
@@ -283,7 +293,7 @@ if (!isset($_SESSION['login'])) {
                         <li id="btn_Lista_Almoxarifado">
                             <a href="#">Equipamentos</a>
                         </li>
-                        <li id="btn_Manutencao">
+                        <li id="btn_Saida">
                             <a href="#">Saída</a>
                         </li>
                     </ul>
@@ -296,8 +306,11 @@ if (!isset($_SESSION['login'])) {
                 </li>
             </ul>
             <div class="row">
+                
                 <div class="col-sm-12">
                     <a class="float-lefts" href="../configuracoes/config.php"><img src="../imagens/conf.png" width="20" alt=""></a>
+                <p class="align-top"> Versão 1.0.10</p>
+
                 </div>
             </div>
         </nav>
