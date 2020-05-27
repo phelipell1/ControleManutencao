@@ -206,3 +206,39 @@ a.article:hover {
     margin-top: 32px;
     height: 30px;
 }
+/*Config CSS*/
+.top{
+    margin-top: 50px;
+}
+.top{
+    margin-top: 20px;
+}
+.label{
+    font-size: 12px;
+}
+.btn-editar{
+    background-image: linear-gradient(20deg,#8bafbe, #8bafbe,#8bafbe);
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    border-radius: 100px;
+    width: 90px;
+}
+.btn-editar:hover{
+    background-image: linear-gradient(20deg,#172227, #24414e,#1d2529);
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+}
+.btn-concluir{
+    border-radius: 100px;
+    border: none;
+    background-color: rgb(2, 13, 59);
+    color: white;
+}
+.btn-cancelar{
+    border-radius: 100px;
+    border: none;
+    background-color: rgb(255, 252, 80);
+    color: white;
+}

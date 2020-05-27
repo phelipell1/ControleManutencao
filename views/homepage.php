@@ -308,7 +308,7 @@ if (!isset($_SESSION['login'])) {
             <div class="row">
                 
                 <div class="col-sm-12">
-                    <a class="float-lefts" href="../configuracoes/config.php"><img src="../imagens/conf.png" width="20" alt=""></a>
+                    <a class="float-lefts" href="../config/configuracoes.php"><img src="../imagens/conf.png" width="20" alt=""></a>
                 <p class="align-top"> Versão 1.0.10</p>
 
                 </div>
